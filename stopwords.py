@@ -1,9 +1,12 @@
 import re
 import json
-import requests
 from collections import Counter
 from pprint import pprint
-from minet.twitter.utils import TwitterWrapper
+try:
+    import requests
+    from minet.twitter.utils import TwitterWrapper
+except:
+    sys.exit("ERROR: you first need to install 'requests' and 'minet' to run this code (using python3), for instance by running `pip install requests minet`")
 
 stopwords_url = "https://raw.githubusercontent.com/stopwords-iso/stopwords-hi/master/stopwords-hi.txt"
 stopwords = requests.get(stopwords_url).text.split("\n")
@@ -59,8 +62,8 @@ for t in tweets:
     if "retweeted_status" in t:
         t["text"] = t["retweeted_status"].get("full_text", t["retweeted_status"].get("text", ""))
     t["text"] = t.get("full_text", t.get("text", ""))
-    if hashtag.lower() not in t["text"].lower():
-        print(t["text"])
+    #if hashtag.lower() not in t["text"].lower():
+    #    print(t["text"])
 
 def clean_text(t):
     t = re.sub(r"https?://\S+", "", t)
