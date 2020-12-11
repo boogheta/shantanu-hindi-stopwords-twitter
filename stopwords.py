@@ -14,11 +14,12 @@ stopwords = requests.get(stopwords_url).text.split("\n")
 print(stopwords)
 
 
+# Edit to fill your API keys here
 t = TwitterWrapper({
-    "access_token": "1299278080528117760-XLr13XxGKi8v1JFFdeEUWh4k0EltMY",
-    "access_token_secret": "TiaxkkjkLq59rl4RKhP6l2KDaMI5zAVbcie23WDHoolGa",
-    "api_key": "FleGaCZQtsRJpVFfGtQQaRoEL",
-    "api_secret_key": "jaBL5AXrBdnXgftxfzyWJ2CrutRWI0DLKUZKVlGQuQxcBMS8je"
+    "access_token": "",
+    "access_token_secret": "",
+    "api_key": "",
+    "api_secret_key": ""
 })
 
 
